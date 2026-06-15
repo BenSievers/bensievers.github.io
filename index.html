@@ -1,23 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Benjamin L. Sievers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin L. Sievers</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Palatino', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #000;
+            background-color: #fff;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 230px;
+            padding: 40px 30px;
+            position: fixed;
+            height: 100vh;
+            background: white;
+        }
+
+        .sidebar h1 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 40px;
+        }
+
+        .sidebar h1 a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .sidebar nav ul li a.active {
+            font-weight: bold;
+        }
+
+        .main-content {
+            margin-left: 230px;
+            padding: 60px 80px;
+            max-width: 850px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+        }
+
+        .section ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .section ul li {
+            margin-bottom: 12px;
+        }
+
+        a {
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 30px;
+            }
+
+            .sidebar nav ul {
+                display: flex;
+                gap: 20px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Benjamin L. Sievers</h1>
+<aside class="sidebar">
 
-<p>
-Oxford-Cambridge NIH PhD Scholar studying infectious diseases,
-vaccines, and cancer immunotherapy.
-</p>
+    <h1>
+        <a href="#" class="home-link">
+            Benjamin L. Sievers
+        </a>
+    </h1>
 
-<h2>Writing</h2>
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link active" data-section="home">home</a></li>
+            <li><a href="#" class="nav-link" data-section="writing">writing</a></li>
+            <li><a href="#" class="nav-link" data-section="research">research</a></li>
+            <li><a href="#" class="nav-link" data-section="contact">contact</a></li>
+        </ul>
+    </nav>
 
-<ul>
-  <li><a href="#">STAT article</a></li>
-  <li><a href="#">Project Syndicate article</a></li>
-</ul>
+</aside>
+
+<main class="main-content">
+
+    <section id="home" class="section active">
+
+        <p>
+            I am an Oxford-Cambridge NIH PhD Scholar studying infectious diseases, vaccines, and cancer immunotherapy.
+        </p>
+
+        <p>
+            My research spans viral immunology, vaccine development, antibody function, and strategies to improve immune responses against difficult-to-treat cancers.
+        </p>
+
+        <p>
+            As a science writer, I cover vaccines, outbreaks, cancer immunotherapy, and global health. I am particularly interested in stories where science, medicine, and public policy collide.
+        </p>
+
+        <p>
+            My work has taken me from the NIH Vaccine Research Center to the University of Cambridge and the Institut Pasteur du Cambodge.
+        </p>
+
+    </section>
+
+    <section id="writing" class="section">
+
+        <p>
+            Selected writing and commentary.
+        </p>
+
+        <ul>
+
+            <li>
+                <a href="https://www.project-syndicate.org/commentary/terminally-ill-patients-contribute-to-medical-research-by-peter-singer-and-benjamin-l-sievers-2025-09">
+                    <em>A Meaningful Last Gift for All Sentient Beings</em>, Project Syndicate
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.statnews.com/2025/12/01/vaccines-needle-phobia-research-alternatives/">
+                    <em>One way to fight vaccine hesitancy: ditch the needles</em>, STAT
+                </a>
+            </li>
+
+
+    </section>
+
+    <section id="research" class="section">
+
+        <p>
+            I am currently an NIH Oxford-Cambridge PhD Scholar working between the Vaccine Research Center at the National Institutes of Health and the University of Cambridge.
+        </p>
+
+        <p>
+            My research focuses on vaccine immunity, antibody-mediated protection, viral evolution, and cancer immunotherapy.
+        </p>
+
+        <p>
+            Current projects include SARS-CoV-2 immunity in older adults, antibody effector functions following vaccination, and innate immune priming strategies to improve checkpoint blockade in cold tumors.
+        </p>
+
+        <p>
+            <a href="https://scholar.google.com/citations?user=WVPA0eUAAAAJ&hl=en">
+                Google Scholar
+            </a>
+        </p>
+
+    </section>
+
+    <section id="contact" class="section">
+
+        <p>
+            Google Scholar: https://scholar.google.com/citations?user=WVPA0eUAAAAJ&hl=en
+        </p>
+
+        <p>
+            LinkedIn: https://www.linkedin.com/in/benjamin-sievers-016136118/
+        </p>
+
+    </section>
+
+</main>
+
+<script>
+
+function showSection(sectionId) {
+
+    document.querySelectorAll('.section').forEach(
+        s => s.classList.remove('active')
+    );
+
+    document.querySelectorAll('.nav-link').forEach(
+        l => l.classList.remove('active')
+    );
+
+    document.getElementById(sectionId).classList.add('active');
+
+    document.querySelector(
+        `.nav-link[data-section="${sectionId}"]`
+    ).classList.add('active');
+}
+
+document.querySelectorAll('.nav-link').forEach(link => {
+
+    link.addEventListener('click', function(e) {
+
+        e.preventDefault();
+
+        showSection(
+            this.getAttribute('data-section')
+        );
+    });
+});
+
+document.querySelector('.home-link').addEventListener('click', function(e) {
+
+    e.preventDefault();
+
+    showSection('home');
+});
+
+</script>
 
 </body>
 </html>
