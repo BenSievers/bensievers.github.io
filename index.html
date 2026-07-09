@@ -1,369 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjamin L. Sievers</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benjamin L. Sievers</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Palatino', Georgia, serif;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #000;
-            background-color: #fff;
-            display: flex;
-            min-height: 100vh;
-        }
+    body {
+      font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #2b2b2b;
+      background-color: #f8f4e8;
+      display: flex;
+      min-height: 100vh;
+    }
 
-        .sidebar {
-            width: 230px;
-            padding: 40px 30px;
-            position: fixed;
-            height: 100vh;
-            background: white;
-        }
+    .sidebar {
+      width: 230px;
+      padding: 40px 30px;
+      position: fixed;
+      height: 100vh;
+      background-color: #f8f4e8;
+    }
 
-        .sidebar h1 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 40px;
-        }
+    .sidebar h1 {
+      font-size: 28px;
+      font-weight: normal;
+      line-height: 1.15;
+      letter-spacing: 0.3px;
+      margin-bottom: 18px;
+      white-space: nowrap;
+    }
 
-        .sidebar h1 a {
-            color: black;
-            text-decoration: none;
-        }
+    .sidebar h1 a,
+    .sidebar nav a,
+    .section a {
+      color: #2b2b2b;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
 
-        .sidebar nav ul {
-            list-style: none;
-        }
+    .sidebar h1 a:hover,
+    .sidebar nav a:hover,
+    .section a:hover {
+      opacity: 0.65;
+    }
 
-        .sidebar nav ul li {
-            margin-bottom: 20px;
-        }
+    .tagline {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
 
-        .sidebar nav ul li a {
-            color: black;
-            text-decoration: none;
-        }
+    .sidebar nav ul,
+    .section ul {
+      list-style: none;
+    }
 
-        .sidebar nav ul li a.active {
-            font-weight: bold;
-        }
+    .sidebar nav li {
+      margin-bottom: 20px;
+    }
 
-        .main-content {
-            margin-left: 230px;
-            padding: 60px 80px;
-            max-width: 850px;
-        }
+    .sidebar nav a.active {
+      font-weight: bold;
+    }
 
-        .section {
-            display: none;
-        }
+    .main-content {
+      margin-left: 230px;
+      padding: 75px 95px;
+      max-width: 900px;
+      width: 100%;
+    }
 
-        .section.active {
-            display: block;
-        }
+    .section {
+      display: none;
+    }
 
-        .section p {
-            margin-bottom: 20px;
-        }
+    .section.active {
+      display: block;
+    }
 
-        .section ul {
-            list-style: none;
-            margin-top: 25px;
-        }
+    .section p {
+      margin-bottom: 20px;
+    }
 
-        .section ul li {
-            margin-bottom: 12px;
-        }
+    .section ul {
+      margin-top: 25px;
+    }
 
-        a {
-            color: black;
-        }
+    .section li {
+      margin-bottom: 14px;
+    }
 
-        @media (max-width: 768px) {
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
 
-            body {
-                flex-direction: column;
-            }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 30px;
+        border-bottom: 1px solid #ded8c8;
+      }
 
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 30px;
-            }
+      .sidebar h1 {
+        margin-bottom: 12px;
+        font-size: 22px;
+      }
 
-            .sidebar nav ul {
-                display: flex;
-                gap: 20px;
-            }
+      .tagline {
+        margin-bottom: 24px;
+      }
 
-            .main-content {
-                margin-left: 0;
-                padding: 30px;
-            }
-        }
-    </style>
+      .sidebar nav ul {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .sidebar nav li {
+        margin-bottom: 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 35px 22px;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<aside class="sidebar">
-
+  <aside class="sidebar">
     <h1>
-        <a href="#" class="home-link">
-            Benjamin L. Sievers
-        </a>
+      <a href="#home" class="home-link">Benjamin L. Sievers</a>
     </h1>
 
-    <nav>
-        <ul>
-            <li><a href="#" class="nav-link active" data-section="home">home</a></li>
-            <li><a href="#" class="nav-link" data-section="writing">writing</a></li>
-            <li><a href="#" class="nav-link" data-section="research">research</a></li>
-            <li><a href="#" class="nav-link" data-section="contact">contact</a></li>
-        </ul>
+    <p class="tagline">
+      Science Writer<br>
+      Oxford-Cambridge NIH Scholar
+    </p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#home" class="nav-link active" data-section="home">home</a></li>
+        <li><a href="#writing" class="nav-link" data-section="writing">writing</a></li>
+        <li><a href="#research" class="nav-link" data-section="research">research</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">contact</a></li>
+      </ul>
     </nav>
+  </aside>
 
-</aside>
-
-<main class="main-content">
+  <main class="main-content">
 
     <section id="home" class="section active">
-
-        <p>
-            I am an Oxford-Cambridge NIH PhD Scholar studying infectious diseases, vaccines, and cancer immunotherapy.
-        </p>
-
-        <p>
-            My research spans viral immunology, vaccine development, antibody function, and strategies to improve immune responses against difficult-to-treat cancers.
-        </p>
-
-        <p>
-            As a science writer, I cover vaccines, outbreaks, cancer immunotherapy, and global health. I am particularly interested in stories where science, medicine, and public policy collide.
-        </p>
-
-        <p>
-            My work has taken me from the NIH Vaccine Research Center to the University of Cambridge and the Institut Pasteur du Cambodge.
-        </p>
-
+      <p>
+        I am an Oxford-Cambridge NIH PhD Scholar studying infectious diseases, immunology, and cancer.
+        My research focuses on vaccine immunity and immunotherapy. As a science writer, I cover vaccines,
+        outbreaks, biotechnology, and global health.
+      </p>
     </section>
 
     <section id="writing" class="section">
+      <p>Selected writing and commentary.</p>
 
-        <p>
-            Selected writing and commentary.
-        </p>
+      <ul>
+        <li>
+          <a href="https://thehill.com/opinion/healthcare/5955310-trump-nobel-peace-prize-ebola/" target="_blank" rel="noopener noreferrer">
+            <em>If Trump wants a Nobel Peace Prize, he should do whatever it takes to stop Ebola</em>, The Hill
+          </a>
+        </li>
 
-        <ul>
+        <li>
+          <a href="https://www.project-syndicate.org/commentary/terminally-ill-patients-contribute-to-medical-research-by-peter-singer-and-benjamin-l-sievers-2025-09" target="_blank" rel="noopener noreferrer">
+            <em>A Meaningful Last Gift for All Sentient Beings</em>, Project Syndicate
+          </a>
+        </li>
 
-            <li>
-                <a href="https://www.project-syndicate.org/commentary/terminally-ill-patients-contribute-to-medical-research-by-peter-singer-and-benjamin-l-sievers-2025-09">
-                    <em>A Meaningful Last Gift for All Sentient Beings</em>, Project Syndicate
-                </a>
-            </li>
+        <li>
+          <a href="https://www.statnews.com/2025/12/01/vaccines-needle-phobia-research-alternatives/" target="_blank" rel="noopener noreferrer">
+            <em>One way to fight vaccine hesitancy: ditch the needles</em>, STAT
+          </a>
+        </li>
 
-            <li>
-                <a href="https://www.statnews.com/2025/12/01/vaccines-needle-phobia-research-alternatives/">
-                    <em>One way to fight vaccine hesitancy: ditch the needles</em>, STAT
-                </a>
-            </li>
+        <li>
+          <a href="https://www.sciencedirect.com/science/article/pii/S0264410X25006796" target="_blank" rel="noopener noreferrer">
+            <em>It's time to change how we vaccinate for measles</em>, Vaccine
+          </a>
+        </li>
 
-             <li>
-                <a href="https://www.sciencedirect.com/science/article/pii/S0264410X25006796">
-                    <em>It's time to change how we vaccinate for measles</em>, Vaccine
-                </a>
-            </li>
-            
-             <li>
-                <a href="https://www.sciencedirect.com/science/article/pii/S2352771424000223">
-                    <em>Ingrained: Rice farming and the risk of zoonotic spillover, examples from Cambodia</em>, One Health
-                </a>
-            </li>
+        <li>
+          <a href="https://www.sciencedirect.com/science/article/pii/S2352771424000223" target="_blank" rel="noopener noreferrer">
+            <em>Ingrained: Rice farming and the risk of zoonotic spillover, examples from Cambodia</em>, One Health
+          </a>
+        </li>
 
-             <li>
-                <a href="https://journals.asm.org/doi/full/10.1128/jvi.01683-23">
-                    <em>“Smart markets”: harnessing the potential of new technologies for endemic and emerging infectious disease surveillance in traditional food markets</em>, Journal of Virology
-                </a>
-            </li>
-            
-             <li>
-                <a href="https://academic.oup.com/ofid/article/10/6/ofad302/7190221?guestAccessKey=">
-                    <em>Inundative, Dry-Powder, Inhaled Measles Vaccination to Prevent Deaths of Young Children in War-torn Regions </em>, Open Forum Infectious Diseases
-                </a>
-            </li>
+        <li>
+          <a href="https://journals.asm.org/doi/full/10.1128/jvi.01683-23" target="_blank" rel="noopener noreferrer">
+            <em>“Smart markets”: harnessing the potential of new technologies for endemic and emerging infectious disease surveillance in traditional food markets</em>, Journal of Virology
+          </a>
+        </li>
 
-             <li>
-                <a href="https://academic.oup.com/oncolo/article/28/1/88/6847159?guestAccessKey=">
-                    <em>It's What's True</em>, The Oncologist
-                </a>
-            </li>
+        <li>
+          <a href="https://academic.oup.com/ofid/article/10/6/ofad302/7190221" target="_blank" rel="noopener noreferrer">
+            <em>Inundative, dry-powder, inhaled measles vaccination to prevent deaths of young children in war-torn regions</em>, Open Forum Infectious Diseases
+          </a>
+        </li>
 
-             <li>
-                <a href="https://www.sciencedirect.com/science/article/pii/S2055664022002485">
-                    <em>Incentivized self-vaccination for global measles eradication</em>, Journal of Virus Eradication
-                </a>
-            </li>
+        <li>
+          <a href="https://academic.oup.com/oncolo/article/28/1/88/6847159" target="_blank" rel="noopener noreferrer">
+            <em>It's What's True</em>, The Oncologist
+          </a>
+        </li>
 
+        <li>
+          <a href="https://www.sciencedirect.com/science/article/pii/S2055664022002485" target="_blank" rel="noopener noreferrer">
+            <em>Incentivized self-vaccination for global measles eradication</em>, Journal of Virus Eradication
+          </a>
+        </li>
+      </ul>
     </section>
 
     <section id="research" class="section">
+      <p>
+        I am currently an NIH Oxford-Cambridge PhD Scholar working between the Vaccine Research Center
+        at the National Institutes of Health and the University of Cambridge.
+      </p>
 
-        <p>
-            I am currently an NIH Oxford-Cambridge PhD Scholar working between the Vaccine Research Center at the National Institutes of Health and the University of Cambridge.
-        </p>
+      <p>
+        My research focuses on vaccine immunity, antibody-mediated protection, viral evolution, and cancer immunotherapy.
+      </p>
 
-        <p>
-            My research focuses on vaccine immunity, antibody-mediated protection, viral evolution, and cancer immunotherapy.
-        </p>
-        
-        <p>
-            Current projects include SARS-CoV-2 immunity in older adults, antibody effector functions following vaccination, and innate immune priming strategies to improve checkpoint blockade in cold tumors.
-        </p>
+      <p>
+        Current projects include SARS-CoV-2 immunity in older adults, antibody effector functions following vaccination,
+        and innate immune priming strategies to improve checkpoint blockade in cold tumors.
+      </p>
 
-        <p>
-            Selected manuscripts.
-        </p>
+      <p>Selected manuscripts.</p>
 
-         <li>
-                <a href="https://www.nature.com/articles/s41541-026-01469-x">
-                    <em>COVID-19 vaccination induces cross-neutralisation of sarbecoviruses related to SARS-CoV-2
-</em>, NPJ Vaccines
-                </a>
-        </li>
-        
-         <li>
-                <a href="https://journals.asm.org/doi/full/10.1128/jvi.01718-25">
-                    <em>Measles vaccination perceptions and willingness to consider novel vaccination approaches in Cambodia’s floating villages
-</em>, Journal of Virology
-                </a>
-        </li>
-        
+      <ul>
         <li>
-                <a href="https://www.nature.com/articles/s41541-025-01196-9">
-                    <em>Age-associated defect in ADCC response to COVID-19 vaccine
-</em>, NPJ Vaccines
-                </a>
-            </li>
+          <a href="https://www.nature.com/articles/s41541-026-01469-x" target="_blank" rel="noopener noreferrer">
+            <em>COVID-19 vaccination induces cross-neutralisation of sarbecoviruses related to SARS-CoV-2</em>, npj Vaccines
+          </a>
+        </li>
 
-            <li>
-                <a href="https://link.springer.com/article/10.1186/s13256-025-05116-2">
-                    <em>Tracheal nodularity and paratracheal soft tissue nodule: post-radioactive iodine treatment changes with peculiar visual and pathologic findings in a case of metastatic follicular variant papillary thyroid carcinoma: a case report
-</em>, Journal of Medical Case Reports
-                </a>
-            </li>
+        <li>
+          <a href="https://journals.asm.org/doi/full/10.1128/jvi.01718-25" target="_blank" rel="noopener noreferrer">
+            <em>Measles vaccination perceptions and willingness to consider novel vaccination approaches in Cambodia’s floating villages</em>, Journal of Virology
+          </a>
+        </li>
 
-             <li>
-                <a href="https://www.science.org/doi/full/10.1126/sciadv.adq3342">
-                    <em>Humoral responses to SARS-CoV-2 vaccine in vasculitis-related immune suppression
-</em>, Science Advances
-                </a>
-            </li>
-            
-             <li>
-                <a href="https://www.nature.com/articles/s41423-023-01104-y">
-                    <em>SARS-CoV-2 and innate immunity: the good, the bad, and the “goldilocks”
-</em>, Cellular and Molecular Immunology
-                </a>
-            </li>
+        <li>
+          <a href="https://www.nature.com/articles/s41541-025-01196-9" target="_blank" rel="noopener noreferrer">
+            <em>Age-associated defect in ADCC response to COVID-19 vaccine</em>, npj Vaccines
+          </a>
+        </li>
 
-             <li>
-                <a href="https://www.cell.com/star-protocols/fulltext/S2666-1667(22)00715-8">
-                    <em>“A high-throughput SARS-CoV-2 pseudovirus multiplex neutralization assay
-</em>, Cell Star Protocols
-                </a>
-            </li>
-            
-             <li>
-                <a href="https://link.springer.com/article/10.1186/s40352-022-00173-x">
-                    <em>Evaluation of feasibility and user acceptance of lateral-flow self-testing for viral illness in a residential treatment rehabilitation facility
-</em>, Health & Justice
-                </a>
-            </li>
+        <li>
+          <a href="https://link.springer.com/article/10.1186/s13256-025-05116-2" target="_blank" rel="noopener noreferrer">
+            <em>Tracheal nodularity and paratracheal soft tissue nodule: post-radioactive iodine treatment changes with peculiar visual and pathologic findings in a case of metastatic follicular variant papillary thyroid carcinoma: a case report</em>, Journal of Medical Case Reports
+          </a>
+        </li>
 
-             <li>
-                <a href="https://www.science.org/doi/full/10.1126/scitranslmed.abm7853">
-                    <em>Early non-neutralizing, afucosylated antibody responses are associated with COVID-19 severity
-</em>, Science Translational Medicine
-                </a>
-            </li>
+        <li>
+          <a href="https://www.science.org/doi/full/10.1126/sciadv.adq3342" target="_blank" rel="noopener noreferrer">
+            <em>Humoral responses to SARS-CoV-2 vaccine in vasculitis-related immune suppression</em>, Science Advances
+          </a>
+        </li>
 
-             <li>
-                <a href="https://www.science.org/doi/full/10.1126/scitranslmed.abn7842">
-                    <em>Antibodies elicited by SARS-CoV-2 infection or mRNA vaccines have reduced neutralizing activity against Beta and Omicron pseudoviruses
- </em>, Science Translational Medicine
-                </a>
-            </li>
-        <p>
-            <a href="https://scholar.google.com/citations?user=WVPA0eUAAAAJ&hl=en">
-                Google Scholar
-            </a>
-        </p>
+        <li>
+          <a href="https://www.nature.com/articles/s41423-023-01104-y" target="_blank" rel="noopener noreferrer">
+            <em>SARS-CoV-2 and innate immunity: the good, the bad, and the “goldilocks”</em>, Cellular &amp; Molecular Immunology
+          </a>
+        </li>
 
+        <li>
+          <a href="https://www.cell.com/star-protocols/fulltext/S2666-1667(22)00715-8" target="_blank" rel="noopener noreferrer">
+            <em>A high-throughput SARS-CoV-2 pseudovirus multiplex neutralization assay</em>, STAR Protocols
+          </a>
+        </li>
+
+        <li>
+          <a href="https://link.springer.com/article/10.1186/s40352-022-00173-x" target="_blank" rel="noopener noreferrer">
+            <em>Evaluation of feasibility and user acceptance of lateral-flow self-testing for viral illness in a residential treatment rehabilitation facility</em>, Health &amp; Justice
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.science.org/doi/full/10.1126/scitranslmed.abm7853" target="_blank" rel="noopener noreferrer">
+            <em>Early non-neutralizing, afucosylated antibody responses are associated with COVID-19 severity</em>, Science Translational Medicine
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.science.org/doi/full/10.1126/scitranslmed.abn7842" target="_blank" rel="noopener noreferrer">
+            <em>Antibodies elicited by SARS-CoV-2 infection or mRNA vaccines have reduced neutralizing activity against Beta and Omicron pseudoviruses</em>, Science Translational Medicine
+          </a>
+        </li>
+      </ul>
+
+      <p>
+        <a href="https://scholar.google.com/citations?user=WVPA0eUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+          View all publications on Google Scholar
+        </a>
+      </p>
     </section>
 
     <section id="contact" class="section">
+      <p>
+        Google Scholar:
+        <a href="https://scholar.google.com/citations?user=WVPA0eUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+          Benjamin L. Sievers
+        </a>
+      </p>
 
-        <p>
-            Google Scholar: https://scholar.google.com/citations?user=WVPA0eUAAAAJ&hl=en
-        </p>
-
-        <p>
-            LinkedIn: https://www.linkedin.com/in/benjamin-sievers-016136118/
-        </p>
-
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/benjamin-sievers-016136118/" target="_blank" rel="noopener noreferrer">
+          Benjamin Sievers
+        </a>
+      </p>
     </section>
 
-</main>
+  </main>
 
-<script>
+  <script>
+    function showSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
 
-function showSection(sectionId) {
+      document.querySelectorAll(".section").forEach((item) => {
+        item.classList.remove("active");
+      });
 
-    document.querySelectorAll('.section').forEach(
-        s => s.classList.remove('active')
-    );
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.classList.remove("active");
+      });
 
-    document.querySelectorAll('.nav-link').forEach(
-        l => l.classList.remove('active')
-    );
+      section.classList.add("active");
 
-    document.getElementById(sectionId).classList.add('active');
-
-    document.querySelector(
+      const activeLink = document.querySelector(
         `.nav-link[data-section="${sectionId}"]`
-    ).classList.add('active');
-}
+      );
 
-document.querySelectorAll('.nav-link').forEach(link => {
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
 
-    link.addEventListener('click', function(e) {
+      window.history.replaceState(null, "", `#${sectionId}`);
+    }
 
-        e.preventDefault();
-
-        showSection(
-            this.getAttribute('data-section')
-        );
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        showSection(link.dataset.section);
+      });
     });
-});
 
-document.querySelector('.home-link').addEventListener('click', function(e) {
+    document.querySelector(".home-link").addEventListener("click", (event) => {
+      event.preventDefault();
+      showSection("home");
+    });
 
-    e.preventDefault();
+    const initialSection = window.location.hash.slice(1);
 
-    showSection('home');
-});
-
-</script>
-
+    if (initialSection && document.getElementById(initialSection)) {
+      showSection(initialSection);
+    }
+  </script>
 </body>
 </html>
