@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benjamin L. Sievers</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #2b2b2b;
+      background-color: #f8f4e8;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 230px;
+      padding: 40px 30px;
+      position: fixed;
+      height: 100vh;
+      background-color: #f8f4e8;
+    }
+
+    .sidebar h1 {
+      font-size: 28px;
+      font-weight: normal;
+      line-height: 1.15;
+      letter-spacing: 0.3px;
+      margin-bottom: 18px;
+      white-space: nowrap;
+    }
+
+    .sidebar h1 a,
+    .sidebar nav a,
+    .section a {
+      color: #2b2b2b;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .sidebar h1 a:hover,
+    .sidebar nav a:hover,
+    .section a:hover {
+      opacity: 0.65;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .sidebar nav ul,
+    .section ul {
+      list-style: none;
+    }
+
+    .sidebar nav li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar nav a.active {
+      font-weight: bold;
+    }
+
+    .main-content {
+      margin-left: 230px;
+      padding: 75px 95px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section p {
+      margin-bottom: 20px;
+    }
+
+    .section ul {
+      margin-top: 25px;
+    }
+
+    .section li {
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 30px;
+        border-bottom: 1px solid #ded8c8;
+      }
+
+      .sidebar h1 {
+        margin-bottom: 12px;
+        font-size: 22px;
+      }
+
+      .tagline {
+        margin-bottom: 24px;
+      }
+
+      .sidebar nav ul {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .sidebar nav li {
+        margin-bottom: 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 35px 22px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <aside class="sidebar">
+    <h1>
+      <a href="#home" class="home-link">Benjamin L. Sievers</a>
+    </h1>
+
+    <p class="tagline">
+      Science Writer<br>
+      Oxford-Cambridge NIH Scholar
+    </p>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#home" class="nav-link active" data-section="home">home</a></li>
+        <li><a href="#writing" class="nav-link" data-section="writing">writing</a></li>
+        <li><a href="#research" class="nav-link" data-section="research">research</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+
+    <section id="home" class="section active">
+      <p>
+        I am an Oxford-Cambridge NIH PhD Scholar studying infectious diseases, immunology, and cancer.
+        My research focuses on vaccine immunity and immunotherapy. As a science writer, I cover vaccines,
+        outbreaks, biotechnology, and global health.
+      </p>
+    </section>
+
+    <section id="writing" class="section">
+      <p>Selected writing and commentary.</p>
+
+      <ul>
+        <li>
+          <a href="https://thehill.com/opinion/healthcare/5955310-trump-nobel-peace-prize-ebola/" target="_blank" rel="noopener noreferrer">
+            <em>If Trump wants a Nobel Peace Prize, he should do whatever it takes to stop Ebola</em>, The Hill
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.project-syndicate.org/commentary/terminally-ill-patients-contribute-to-medical-research-by-peter-singer-and-benjamin-l-sievers-2025-09" target="_blank" rel="noopener noreferrer">
+            <em>A Meaningful Last Gift for All Sentient Beings</em>, Project Syndicate
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.statnews.com/2025/12/01/vaccines-needle-phobia-research-alternatives/" target="_blank" rel="noopener noreferrer">
+            <em>One way to fight vaccine hesitancy: ditch the needles</em>, STAT
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.sciencedirect.com/science/article/pii/S0264410X25006796" target="_blank" rel="noopener noreferrer">
+            <em>It's time to change how we vaccinate for measles</em>, Vaccine
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.sciencedirect.com/science/article/pii/S2352771424000223" target="_blank" rel="noopener noreferrer">
+            <em>Ingrained: Rice farming and the risk of zoonotic spillover, examples from Cambodia</em>, One Health
+          </a>
+        </li>
+
+        <li>
+          <a href="https://journals.asm.org/doi/full/10.1128/jvi.01683-23" target="_blank" rel="noopener noreferrer">
+            <em>“Smart markets”: harnessing the potential of new technologies for endemic and emerging infectious disease surveillance in traditional food markets</em>, Journal of Virology
+          </a>
+        </li>
+
+        <li>
+          <a href="https://academic.oup.com/ofid/article/10/6/ofad302/7190221" target="_blank" rel="noopener noreferrer">
+            <em>Inundative, dry-powder, inhaled measles vaccination to prevent deaths of young children in war-torn regions</em>, Open Forum Infectious Diseases
+          </a>
+        </li>
+
+        <li>
+          <a href="https://academic.oup.com/oncolo/article/28/1/88/6847159" target="_blank" rel="noopener noreferrer">
+            <em>It's What's True</em>, The Oncologist
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.sciencedirect.com/science/article/pii/S2055664022002485" target="_blank" rel="noopener noreferrer">
+            <em>Incentivized self-vaccination for global measles eradication</em>, Journal of Virus Eradication
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="research" class="section">
+      <p>
+        I am currently an NIH Oxford-Cambridge PhD Scholar working between the Vaccine Research Center
+        at the National Institutes of Health and the University of Cambridge.
+      </p>
+
+      <p>
+        My research focuses on vaccine immunity, antibody-mediated protection, viral evolution, and cancer immunotherapy.
+      </p>
+
+      <p>
+        Current projects include SARS-CoV-2 immunity in older adults, antibody effector functions following vaccination,
+        and innate immune priming strategies to improve checkpoint blockade in cold tumors.
+      </p>
+
+      <p>Selected manuscripts.</p>
+
+      <ul>
+        <li>
+          <a href="https://www.nature.com/articles/s41541-026-01469-x" target="_blank" rel="noopener noreferrer">
+            <em>COVID-19 vaccination induces cross-neutralisation of sarbecoviruses related to SARS-CoV-2</em>, npj Vaccines
+          </a>
+        </li>
+
+        <li>
+          <a href="https://journals.asm.org/doi/full/10.1128/jvi.01718-25" target="_blank" rel="noopener noreferrer">
+            <em>Measles vaccination perceptions and willingness to consider novel vaccination approaches in Cambodia’s floating villages</em>, Journal of Virology
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.nature.com/articles/s41541-025-01196-9" target="_blank" rel="noopener noreferrer">
+            <em>Age-associated defect in ADCC response to COVID-19 vaccine</em>, npj Vaccines
+          </a>
+        </li>
+
+        <li>
+          <a href="https://link.springer.com/article/10.1186/s13256-025-05116-2" target="_blank" rel="noopener noreferrer">
+            <em>Tracheal nodularity and paratracheal soft tissue nodule: post-radioactive iodine treatment changes with peculiar visual and pathologic findings in a case of metastatic follicular variant papillary thyroid carcinoma: a case report</em>, Journal of Medical Case Reports
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.science.org/doi/full/10.1126/sciadv.adq3342" target="_blank" rel="noopener noreferrer">
+            <em>Humoral responses to SARS-CoV-2 vaccine in vasculitis-related immune suppression</em>, Science Advances
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.nature.com/articles/s41423-023-01104-y" target="_blank" rel="noopener noreferrer">
+            <em>SARS-CoV-2 and innate immunity: the good, the bad, and the “goldilocks”</em>, Cellular &amp; Molecular Immunology
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.cell.com/star-protocols/fulltext/S2666-1667(22)00715-8" target="_blank" rel="noopener noreferrer">
+            <em>A high-throughput SARS-CoV-2 pseudovirus multiplex neutralization assay</em>, STAR Protocols
+          </a>
+        </li>
+
+        <li>
+          <a href="https://link.springer.com/article/10.1186/s40352-022-00173-x" target="_blank" rel="noopener noreferrer">
+            <em>Evaluation of feasibility and user acceptance of lateral-flow self-testing for viral illness in a residential treatment rehabilitation facility</em>, Health &amp; Justice
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.science.org/doi/full/10.1126/scitranslmed.abm7853" target="_blank" rel="noopener noreferrer">
+            <em>Early non-neutralizing, afucosylated antibody responses are associated with COVID-19 severity</em>, Science Translational Medicine
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.science.org/doi/full/10.1126/scitranslmed.abn7842" target="_blank" rel="noopener noreferrer">
+            <em>Antibodies elicited by SARS-CoV-2 infection or mRNA vaccines have reduced neutralizing activity against Beta and Omicron pseudoviruses</em>, Science Translational Medicine
+          </a>
+        </li>
+      </ul>
+
+      <p>
+        <a href="https://scholar.google.com/citations?user=WVPA0eUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+          View all publications on Google Scholar
+        </a>
+      </p>
+    </section>
+
+    <section id="contact" class="section">
+      <p>
+        Google Scholar:
+        <a href="https://scholar.google.com/citations?user=WVPA0eUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+          Benjamin L. Sievers
+        </a>
+      </p>
+
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/benjamin-sievers-016136118/" target="_blank" rel="noopener noreferrer">
+          Benjamin Sievers
+        </a>
+      </p>
+    </section>
+
+  </main>
+
+  <script>
+    function showSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      document.querySelectorAll(".section").forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.classList.remove("active");
+      });
+
+      section.classList.add("active");
+
+      const activeLink = document.querySelector(
+        `.nav-link[data-section="${sectionId}"]`
+      );
+
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+
+      window.history.replaceState(null, "", `#${sectionId}`);
+    }
+
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        showSection(link.dataset.section);
+      });
+    });
+
+    document.querySelector(".home-link").addEventListener("click", (event) => {
+      event.preventDefault();
+      showSection("home");
+    });
+
+    const initialSection = window.location.hash.slice(1);
+
+    if (initialSection && document.getElementById(initialSection)) {
+      showSection(initialSection);
+    }
+  </script>
+</body>
+</html>
